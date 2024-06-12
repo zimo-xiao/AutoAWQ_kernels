@@ -99,7 +99,7 @@ def get_compute_capabilities(
         for i in range(torch.cuda.device_count()):
             major, minor = torch.cuda.get_device_capability(i)
             cc = major * 10 + minor
-            if cc < 75:
+            if cc <= 70:
                 raise RuntimeError(
                     "GPUs with compute capability less than 7.5 are not supported."
                 )
